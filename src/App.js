@@ -1,23 +1,26 @@
 import service from './service/service';
 import { useEffect, useState } from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, useLocation} from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import ManagePage from './pages/ManagerPage';
 import ItemPage from './pages/ItemPage';
 import CashPage from './pages/CashPage';
 
+import NavBar from './components/NavBarComponent';
+import Footer from './components/FooterComponent';
+
 function App() {
+
+
+
   return (
     <div className="App">
       <Router>
 
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/manage'>Manage</Link>
-          <Link to='/item'>Item</Link>
-          <Link to='/cash'>Cash</Link>
-        </nav>
+        <NavBar/>
+
+        <br/><hr/><br/>
 
         <Routes>
           <Route path="/" element={<HomePage/>} />
@@ -26,7 +29,9 @@ function App() {
           <Route path="/cash" element={<CashPage/>} />
         </Routes>
 
-        <footer>This is a footer.</footer>
+        <br/><br/>
+
+        <Footer/>
 
       </Router>
     </div>

@@ -18,7 +18,10 @@ function HomePage() {
   console.log(token);
 
   return (
-    <div>HomePage</div>
+    <> 
+      <div>HomePage</div>
+      <p>test</p>
+    </>
   )
 }
 
