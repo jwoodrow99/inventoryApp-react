@@ -2,6 +2,9 @@ import React from 'react';
 import service from '../service/service';
 import { useEffect, useState } from 'react';
 
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+
 function HomePage() {
 
   const [token, setToken] = useState("");
@@ -20,7 +23,7 @@ function HomePage() {
   return (
     <> 
       <div>HomePage</div>
-      <p>test</p>
+      <Button variant="contained" endIcon={<SendIcon />}>Test</Button>
     </>
   )
 }
