@@ -8,7 +8,9 @@ import {BrowserRouter as Router, Routes, Route, Link, useLocation} from 'react-r
 import NavBarComponent from './components/NavBarComponent';
 
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
+import CashPage from './pages/CashPage';
+import InventoryPage from './pages/InventoryPage';
+import ManagePage from './pages/ManagePage';
 
 function App() {
   return (
@@ -18,11 +20,11 @@ function App() {
 
         <NavBarComponent/>
 
-        <hr/>
-
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/manage" element={<ManagePage/>} />
+          <Route path="/inventory" element={<InventoryPage/>} />
+          <Route path="/cash" element={<CashPage/>} />
         </Routes>
 
       </Router>

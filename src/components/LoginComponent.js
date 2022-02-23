@@ -3,13 +3,15 @@ import Cookie from 'js-cookie';
 import service from '../service/service';
 import { useEffect, useState } from 'react';
 
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 function LoginComponent() {
 
   const [employeeId, setEmployeeId] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     service.auth.login({
       employee_id: employeeId,
       password: password
@@ -21,27 +23,16 @@ function LoginComponent() {
   }
 
   return (
-    <div>      
+    <div>
         <br/>
-        <form onSubmit={handleSubmit}>
+        <div>
 
-            <label>
-                Employee ID:
-                <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}/>
-            </label>
+          <TextField label="Employee ID" variant="standard" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}/><br/>
+          <TextField label="Password" variant="standard" type='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br/>
+          <br/>
+          <Button variant="contained" onClick={() => handleSubmit()}>Login</Button>
 
-            <br/>
-
-            <label>
-                Password:
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            </label>
-
-            <br/>
-
-            <input type="submit" value="Submit"/>
-
-        </form>
+        </div>
     </div>
   )
 }
