@@ -3,7 +3,7 @@ import queryString from "query-string";
 import Cookie from 'js-cookie';
 
 const axiosClient = axios.create({
-  baseURL : "http://localhost:3000"
+  baseURL : "http://localhost:5000"
 });
 
 const apiRequest = (method, url, query = {}, body = {}) => {

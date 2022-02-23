@@ -1,50 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 import Cookie from 'js-cookie';
-
 import service from './service/service';
 import { useEffect, useState } from 'react';
+import {BrowserRouter as Router, Routes, Route, Link, useLocation} from 'react-router-dom';
 
+import NavBarComponent from './components/NavBarComponent';
 
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
-
-  const [employeeId, setEmployeeId] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e);
-    service.auth.login({
-      employee_id: employeeId,
-      password: password
-    }).then(res => {
-      Cookie.set('token', res.token);
-    });
-  }
-
   return (
     <div className="App">
-      <br/>
-      <form onSubmit={handleSubmit}>
 
-        <label>
-          Employee ID:
-          <input type="text" value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}/>
-        </label>
+      <Router>
 
-        <br/>
+        <NavBarComponent/>
 
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        </label>
+        <hr/>
 
-        <br/>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/about" element={<AboutPage/>} />
+        </Routes>
 
-        <input type="submit" value="Submit"/>
+      </Router>
 
-      </form>
     </div>
   );
 }
