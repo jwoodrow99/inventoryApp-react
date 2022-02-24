@@ -10,12 +10,12 @@ import Button from '@mui/material/Button';
 function NavBarComponent() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        let userCookie = Cookie.get('user');
-        if(userCookie){
-            console.log(JSON.parse(userCookie));
-        }
-    }, []);
+    // useEffect(() => {
+    //     let userCookie = Cookie.get('user');
+    //     if(userCookie){
+    //         console.log(JSON.parse(userCookie));
+    //     }
+    // }, []);
 
     return (
         <AppBar position="static">

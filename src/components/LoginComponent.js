@@ -1,12 +1,15 @@
 import React from 'react';
 import Cookie from 'js-cookie';
 import service from '../service/service';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import GlobalContext from '../GlobalContext';
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 function LoginComponent() {
+
+  const {setToken, setUser} = useContext(GlobalContext);
 
   const [employeeId, setEmployeeId] = useState('');
   const [password, setPassword] = useState('');
@@ -16,9 +19,16 @@ function LoginComponent() {
       employee_id: employeeId,
       password: password
     }).then(res => {
+
+      setToken(res.token);
+      setUser(res.user);
+
       Cookie.set('token', res.token);
+      Cookie.set('user', JSON.stringify(res.user));
+
       setEmployeeId('');
       setPassword('');
+
     });
   }
 
