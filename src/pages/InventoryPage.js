@@ -123,7 +123,7 @@ function InventoryPage() {
 
       <ul>
         {items.map((item, index) => {
-          return <li>{item.name}<Button onClick={() => deleteItem(item)}>Delete!</Button><Button onClick={() => updateItem(item)}>Update!</Button></li>
+          return <li key={item._id}>{item.name}<Button onClick={() => deleteItem(item)}>Delete!</Button><Button onClick={() => updateItem(item)}>Update!</Button></li>
         })}
       </ul>
     </div>
